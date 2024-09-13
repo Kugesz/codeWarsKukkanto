@@ -9,19 +9,28 @@ function Lekerdezes(){
         return response.json()
     })
     .then(data => {
+        osszes = {
+            rang: data.ranks.overall.name,
+            pont: data.ranks.overall.score
+        }
+
         let adatok = []
         adat = data.ranks.languages
         for (let nyelv in adat){
+            nyelv = nyelv[0].toUpperCase() + nyelv.slice(1)
+            console.log(nyelv)
             adatok.push({
                 nyelv: nyelv,
-                pont: adat[nyelv].score
+                pont: adat[nyelv.toLowerCase()].score
             })
         }
 
-        console.log(adatok);
         const container = document.getElementById("languages");
-        Array.adatok.forEach(element => {   
-            container.innerHTML += `<h2>${element.nyelv}</h2><h2>${element.pont}</h2>`
+
+        container.innerHTML += `<tr><th>${osszes.rang}</th> <th>${osszes.pont}pont</th></tr>`
+
+        adatok.forEach(element => {   
+            container.innerHTML += `<tr><th>${element.nyelv}:</th> <th>${element.pont}pont</th></tr>`
         });
     })
 }
