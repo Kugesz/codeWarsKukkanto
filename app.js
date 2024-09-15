@@ -1,3 +1,5 @@
+users = []
+
 function Lekerdezes(){
     let name = document.getElementById("nameInput").value;
 
@@ -9,25 +11,31 @@ function Lekerdezes(){
         return response.json()
     })
     .then(data => {
-        osszes = {
-            rang: data.ranks.overall.name,
-            pont: data.ranks.overall.score
+        const container = document.getElementById("languages");
+        console.log(data)
+        user = new User(data.username, data.ranks.overall.score)
+        users.push(user)
+
+        rangsorFrissítése();
+
+        //  Egyesített pontok kiírása
+        if(!getSwitchState()){
+            container.innerHTML = `<h2>${data.ranks.overall.name} ${data.ranks.overall.score}pont</h2>`
+            return;
         }
 
+        //  Kiírt adatok törlése
+        container.innerHTML = ``;
         let adatok = []
         adat = data.ranks.languages
         for (let nyelv in adat){
             nyelv = nyelv[0].toUpperCase() + nyelv.slice(1)
-            console.log(nyelv)
             adatok.push({
                 nyelv: nyelv,
                 pont: adat[nyelv.toLowerCase()].score
             })
         }
 
-        const container = document.getElementById("languages");
-
-        container.innerHTML += `<tr><th>${osszes.rang}</th> <th>${osszes.pont}pont</th></tr>`
 
         adatok.forEach(element => {   
             container.innerHTML += `<tr><th>${element.nyelv}:</th> <th>${element.pont}pont</th></tr>`
@@ -35,3 +43,27 @@ function Lekerdezes(){
     })
 }
 
+function getSwitchState() {
+    const toggleSwitch = document.getElementById('toggleSwitch');
+
+    //  True = kulon, False = egyseges
+    if (toggleSwitch.checked) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function rangsorFrissítése() {
+    users.sort((a, b) => b.score - a.score);
+    
+    console.log(users);
+
+    const container = document.getElementById("rangsor");
+
+    container.innerHTML = ``
+
+    for(let i = 0; i<users.length; i++){
+        container.innerHTML += `<tr><th>${i+1}.</th> <th>${users[i].name}</th> <th>${users[i].score}pont</th></tr>`
+    }
+}
