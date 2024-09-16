@@ -31,10 +31,8 @@ function Lekerdezes(){
 
 
         //  Egyesített pontok kiírása
-        if(!getSwitchState()){
-            container.innerHTML = `<h2>${data.ranks.overall.name} ${data.ranks.overall.score}pont</h2>`
-            return;
-        }
+        const egyesitettContainer = document.getElementById("overall");
+        egyesitettContainer.innerText = `${data.ranks.overall.name} ${data.ranks.overall.score}pont`
 
         //  Kiírt adatok törlése
         container.innerHTML = ``;

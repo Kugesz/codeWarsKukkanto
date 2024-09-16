@@ -32,6 +32,7 @@ h2 {
 
 #eredmeny {
     height: 400px;
+    display: none;
 }
 
 .col-3{
@@ -51,6 +52,8 @@ h2 {
 #languages {
   margin:  0 auto;
 }
+
+
 
 #rangsor{
   width: 100%;
