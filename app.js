@@ -14,9 +14,20 @@ function Lekerdezes(){
         const container = document.getElementById("languages");
         console.log(data)
         user = new User(data.username, data.ranks.overall.score)
-        users.push(user)
 
-        rangsorFrissítése();
+        benneVanE = false;
+        for(let i = 0; i < users.length; i++){
+            if(users[i].name == user.name){
+                benneVanE = true;
+                break;
+            }
+        }
+
+        if(!benneVanE){
+            users.push(user)
+            rangsorFrissítése();
+        }
+
 
         //  Egyesített pontok kiírása
         if(!getSwitchState()){
