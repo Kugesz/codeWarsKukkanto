@@ -6,6 +6,7 @@ function Lekerdezes(){
     fetch(`https://www.codewars.com/api/v1/users/${name}`)
     .then(response => {
         if(!response.ok){
+            alert("Nem található ilyen felhasználó!")
             throw new Error("Hiba a lekérdezés során!")
         }
         return response.json()
