@@ -12,6 +12,8 @@ function Lekerdezes(){
         return response.json()
     })
     .then(data => {
+        document.querySelector('#hatso-kartya').style.transform = 'translateX(0%)';
+
         const container = document.getElementById("languages");
         console.log(data)
         user = new User(data.username, data.ranks.overall.score)
@@ -53,17 +55,6 @@ function Lekerdezes(){
     })
 }
 
-function getSwitchState() {
-    const toggleSwitch = document.getElementById('toggleSwitch');
-
-    //  True = kulon, False = egyseges
-    if (toggleSwitch.checked) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 function rangsorFrissítése() {
     users.sort((a, b) => b.score - a.score);
     
@@ -76,4 +67,8 @@ function rangsorFrissítése() {
     for(let i = 0; i<users.length; i++){
         container.innerHTML += `<tr><th>${i+1}.</th> <th>${users[i].name}</th> <th>${users[i].score}pont</th></tr>`
     }
+}
+
+function Reszletek(){
+    document.querySelector('#hatso-kartya').style.transform = 'translateX(125%)';
 }

@@ -8,32 +8,31 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="header">
-        <h1>CodeWars információk</h1>
-        <label class="switch-container">
-            <input type="checkbox" id="toggleSwitch">
-            <span class="slider"></span>
-        </label>
-    </div>
+    <h1>CodeWars információk</h1>
     <div class="row col-12 d-flex flex-column justify-content-center">
-        <div class="row d-flex justify-content-evenly align-items-center" style="width: 100vw; height: 100%;">
-            <div class="col-3 d-flex justify-content-center flex-column">
+        <div class="row d-flex justify-content-center" style="height: 200px;">
+            <div class="kartya-container col-2" style="padding: 0;">
                 <!-- keresés -->
-                <div class="row d-flex justify-content-center">
-                    <h2 id="overall" onclick="Reszletek()"></h2>
+                <div class="col-12 d-flex justify-content-center flex-column card" id="elso-kartya">
+                    <div class="row d-flex justify-content-center">
+                        <!-- Nev és pontok kiiras -->
+                        <h2 id="overall" onclick="Reszletek()" style="cursor: pointer;"></h2>
+                    </div>
+                    <!-- Bemenet -->
+                    <div class="row d-flex justify-content-center flex-row">
+                        <input type="text" id="nameInput" class="col-6">
+                        <button onclick="Lekerdezes()" class="col-4">Lekérdezés</button>
+                    </div>
                 </div>
-                <div class="row d-flex justify-content-center flex-row">
-                    <input type="text" id="nameInput" class="col-6">
-                    <button onclick="Lekerdezes()" class="col-4">Lekérdezés</button>
+                <!-- Reszletek -->
+                <div class="col-12 d-flex justify-content-center align-items-center card" id="hatso-kartya">
+                    <table id="languages"></table>
                 </div>
             </div>
-            <div class="d-flex justify-content-center align-items-center" id="eredmeny">
-                <table id="languages"></table>
-            </div>
-    </div>
-    <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-3">
-            <h2>Rangsor</h2>
+        </div>
+    <div class="row d-flex justify-content-center align-items-center rangsor-row">
+        <div class="col-2 card">
+            <h2 style="color: #7395c1;">Rangsor</h2>
             <table id="rangsor"></table>
         </div>
     </div>
