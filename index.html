@@ -11,7 +11,7 @@
     <h1>CodeWars információk</h1>
     <div class="row col-12 d-flex flex-column justify-content-center">
         <div class="row d-flex justify-content-center" style="height: 200px;">
-            <div class="kartya-container col-2" style="padding: 0;">
+            <div class="kartya-container col-3" style="padding: 0;">
                 <!-- keresés -->
                 <div class="col-12 d-flex justify-content-center flex-column card" id="elso-kartya">
                     <div class="row d-flex justify-content-center">
@@ -21,17 +21,17 @@
                     <!-- Bemenet -->
                     <div class="row d-flex justify-content-center flex-row">
                         <input type="text" id="nameInput" class="col-6">
-                        <button onclick="Lekerdezes()" class="col-4">Lekérdezés</button>
+                        <button onclick="Lekerdezes()" class="col-3">Lekérdezés</button>
                     </div>
                 </div>
                 <!-- Reszletek -->
-                <div class="col-12 d-flex justify-content-center align-items-center card" id="hatso-kartya">
+                <div class="col-12 card" id="hatso-kartya" style="height: 200px;">
                     <table id="languages"></table>
                 </div>
             </div>
         </div>
     <div class="row d-flex justify-content-center align-items-center rangsor-row">
-        <div class="col-2 card">
+        <div class="col-3 card" id="rangsor-card">
             <h2 style="color: #7395c1;">Rangsor</h2>
             <table id="rangsor"></table>
         </div>

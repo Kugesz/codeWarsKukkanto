@@ -28,13 +28,23 @@ button {
 }
 
 #elso-kartya{
+  height: 200px;
   position: absolute;
   z-index: 1;
+}
+
+.card{
+  background-color: #1B263B;
+  border-radius: 5px;
+  box-shadow: 0px 8px 10px 0 rgba(0, 0, 0, 0.071);
+  overflow: hidden;
 }
 
 #hatso-kartya{
   position: absolute;
   transition: all 0.5s ease-in-out;
+  min-height: 200px;
+  padding: 3% 0%;
 }
 
 h1 {
@@ -46,25 +56,24 @@ h2 {
   text-align: center;
 }
 
+
 #eredmeny {
-    height: 400px;
-    display: none;
+  height: 400px;
+  display: none;
 }
 
 .rangsor-row{
   margin-top: 100px;
 }
 
-.card{
-  background-color: #1B263B;
-  height: 200px;
-  border-radius: 5px;
-  box-shadow: 0px 8px 10px 0 rgba(0, 0, 0, 0.071);
+
+#rangsor-card {
+  min-height: 300px;
 }
 
-
 #languages {
-  margin:  0 auto;
+  min-width: 200px;
+  margin: 0 auto;
 }
 
 #rangsor{
@@ -127,4 +136,8 @@ input:checked + .slider:before {
 
 input:checked + .slider {
   background-color: #2196F3;
+}
+
+button {
+  font-size: 12px;
 }
